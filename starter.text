@@ -1,0 +1,4 @@
+npm install react@latest next@latest react-dom@latest
+
+* Our code will be called by Next.js. (Not we call Next.js)
+* Next.js will find the page file in the app folder when it is started
