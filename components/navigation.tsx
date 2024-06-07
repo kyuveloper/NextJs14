@@ -1,4 +1,3 @@
-"use client"
 /* 
     Next.js는 나의 자바스크립트 코드들을 server side rendering을 통해 모두 읽은 후에
     page의 request에 대한 response로 전달하기 때문에 React만으로 개발하는 것보다 많은 이점이 있다.
@@ -15,12 +14,18 @@
     로딩 시간도 더 소요된다.
 */
 
+"use client"
+// 해당 컴포넌트를 hydration을 통해 렌더링 하겠다. 클라이언트에서 렌더링하겠다는 의미가 아님
+// use client 작성하지 않으면 해당 컴포넌트는 클라이언트 단에서 렌더링되지 않음 (효율적임)
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function Navigation () {
 
     const path = usePathname();
+    // const [count, setCount] = useState(0);
 
     return (
         <nav>
@@ -31,6 +36,9 @@ export default function Navigation () {
                 <li>
                     <Link href="/about-us">About Us</Link> {path ==="/about-us" ? "🔥" : ""}
                 </li>
+                {/* <li>
+                    <button onClick={()=> setCount((c)=>c+1)}>{count}</button>
+                </li> */}
             </ul>
         </nav>
     )
